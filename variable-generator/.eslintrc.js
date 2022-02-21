@@ -4,7 +4,7 @@ module.exports = {
     node: true,
   },
   extends: [
-    "plugin:vue/vue3-essential",
+    "plugin:vue/essential",
     "eslint:recommended",
     "plugin:prettier/recommended",
   ],
@@ -14,6 +14,8 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-multiple-template-root": "off",
+    "vue/multi-word-component-names": ['error', {
+      "ignores": ['Home']
+    }]
   },
 };
