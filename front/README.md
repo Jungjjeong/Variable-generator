@@ -1,3 +1,0 @@
-# Variable-generator
-
-## front
