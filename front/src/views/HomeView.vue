@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" style="width:20%">
+    <img alt="Vue logo" src="../assets/logo.png" style="width:13vh">
     <HelloWorld msg="변수명 생성기"/>
   </div>
 </template>

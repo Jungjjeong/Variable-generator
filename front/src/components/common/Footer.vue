@@ -15,3 +15,11 @@ export default{
 //   left: 100px;
 // }
 // </style>
+<style scoped>
+footer {
+  color: white;
+  position : relative;
+  background: blueviolet;
+  height: 5vh;
+  }
+</style>

@@ -28,7 +28,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background: #000000;
+  padding: 0%;
 }
 
 
@@ -37,12 +38,6 @@ export default {
   min-height: 85vh;
   flex: 1;
 }
-
-Footer {
-  position : relative;
-  background-color: #4a198a;
-  height: 5vh;
-  }
 // nav {
 //   height: 30%;
 

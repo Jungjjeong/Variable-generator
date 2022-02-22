@@ -13,7 +13,7 @@ export default{
 
 <style>
 #nav {
-  background: rgb(255, 255, 255);
+  color: white;
   padding: 10px;
   padding-bottom: 15%;
   border-radius: 5px;
@@ -21,7 +21,7 @@ export default{
 }
 
 #nav .menu{
-  color: rgb(0, 0, 0);
+  color: white;
   padding: 0px;
   margin: 10px;
   text-decoration: none;
