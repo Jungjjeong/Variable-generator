@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" style="width:20%">
-    <HelloWorld msg="변수명 검색기"/>
+    <HelloWorld msg="변수명 생성기"/>
   </div>
 </template>
 
