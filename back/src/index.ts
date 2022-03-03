@@ -1,6 +1,7 @@
-const express = require("express");
+import express from "express";
 
-let app = express();
+const app = express();
+
 const PORT = 3000;
 const OK = 200;
 
@@ -19,3 +20,5 @@ app.post("/", function(req, res) {
 app.listen(PORT, function(){
     console.log(`listening on ${PORT}`);
 })
+
+export default app;
