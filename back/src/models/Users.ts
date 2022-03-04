@@ -5,7 +5,7 @@ export default class Users extends Model {}
 
 Users.init({
   userId : {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
@@ -26,10 +26,12 @@ Users.init({
   },
   signUpAt : {
     type: DataTypes.DATE,
+    allowNull: false,
     comment : '회원가입 날짜'
   },
   loginAt : {
     type: DataTypes.DATE,
+    allowNull: false,
     comment : '마지막 로그인 날짜'
   }
 }, {
