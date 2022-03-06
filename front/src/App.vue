@@ -1,22 +1,21 @@
 <template>
   <div id="app">
-    <Header />
+    <Header></Header>
     <div id="wrapper">
       <router-view/>
     </div>
-    <Footer />
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Header from './components/common/Header.vue';
-import Footer from './components/common/Footer.vue';
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 
 export default {
-  name: 'App',
   components: {
-    Header, 
-    Footer
+    'Header' : Header,
+    'Footer' : Footer
   }
 }
 
@@ -38,16 +37,4 @@ export default {
   min-height: 85vh;
   flex: 1;
 }
-// nav {
-//   height: 30%;
-
-//   a {
-//     font-weight: bold;
-//     color: #2c3e50;
-
-//     &.router-link-exact-active {
-//       color: #42b983;
-//     }
-//   }
-// }
 </style>
