@@ -26,7 +26,7 @@ export default {
 
 .clearAllBtn {
   color: #6138D4;
-  font-style: bold;
+  font-weight: bold;
   display: block;
 }
 </style>

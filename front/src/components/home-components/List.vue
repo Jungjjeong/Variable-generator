@@ -1,6 +1,6 @@
 <template>
   <div>
-	  <ul>
+    <transition-group name="list" tag="ul">
       <li v-for="(word, idx) in propsdata" v-bind:key="word.item" class="shadow">
         <span class="copyBtn" v-bind:class="{copyBtnCompleted: word.copied}" v-on:click="copyComplete(word, idx)">
           <i class="fa-solid fa-copy"></i>
@@ -10,7 +10,7 @@
           <i class="fa-solid fa-trash-can"></i>
         </span>
       </li>
-    </ul>
+    </transition-group>
   </div>
 </template>
 
@@ -69,5 +69,16 @@ li {
 .removeBtn {
   margin-left: auto;
   color: #6138D4;
+}
+
+/* 리스트 아이템 트렌지션 효과 */
+
+.list-enter-active, .list-leave-active {
+  transition: all 0.5s;
+}
+
+.list-enter, .list-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
 }
 </style>
