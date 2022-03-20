@@ -1,7 +1,7 @@
 <template>
   <div>
-	  <ul>
-      <li v-for="(word, idx) in words" v-bind:key="word.item" class="shadow">
+    <transition-group name="list" tag="ul">
+      <li v-for="(word, idx) in propsdata" v-bind:key="word.item" class="shadow">
         <span class="copyBtn" v-bind:class="{copyBtnCompleted: word.copied}" v-on:click="copyComplete(word, idx)">
           <i class="fa-solid fa-copy"></i>
         </span>
@@ -10,35 +10,19 @@
           <i class="fa-solid fa-trash-can"></i>
         </span>
       </li>
-    </ul>
+    </transition-group>
   </div>
 </template>
 
 <script>
 export default {
-  data : function() {
-    return {
-      words : []
-    }
-  },
-  // 인스턴스 생성되자마자 실행되는 로직 created
-  created: function() {
-    if (localStorage.length > 0) {
-      for (var i=0; i<localStorage.length; i+= 1) {
-        this.words.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-        // this.words.push(localStorage.key(i));
-      }
-    }
-  },
+  props: ['propsdata'],
   methods: {
     removeWord: function(word, idx) {
-      localStorage.removeItem(word);
-      this.words.splice(idx, 1);
+      this.$emit('removeWord', word, idx)
     },
     copyComplete: function(word, idx) {
-      word.copied = !word.copied;
-      localStorage.removeItem(word.item);
-      localStorage.setItem(word.item, JSON.stringify(word));
+      this.$emit('copyComplete', word, idx)
     }
   }
 }
@@ -85,5 +69,16 @@ li {
 .removeBtn {
   margin-left: auto;
   color: #6138D4;
+}
+
+/* 리스트 아이템 트렌지션 효과 */
+
+.list-enter-active, .list-leave-active {
+  transition: all 0.5s;
+}
+
+.list-enter, .list-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
 }
 </style>

@@ -4,29 +4,48 @@
 		<span class="addContainer" v-on:click="addWord">
 			<i class="fa-solid fa-play addBtn"/>
 		</span>
+
+		<modal v-if="showModal" @close="showModal = false">
+			<!--
+			이미 정의된 컴포넌트의 UI요소들은 바꾸기 힘들지만
+			slot을 통해서 특정 부분들을 재정의할 수 있어요.
+			-->
+			<h3 slot="header">경고
+				<i class="closeModalBtn fa-solid fa-xmark" @click="showModal = false"></i>
+			</h3>
+			<div slot="body">생성할 변수의 단어를 입력해주세요.</div>
+		</modal>
 	</div>
 </template>
 
 <script>
+import Modal from '../common/Modal.vue'
+
+
 export default {
 	data: function() {
 		return {
-			newWordItem : ""
+			newWordItem : "",
+			showModal : false
 		}
 	},
 	methods: {
 		addWord: function() {
 			if (this.newWordItem !== "") {
-				var obj = {copied: false, item:this.newWordItem};
-				// 저장하는 로직
-				localStorage.setItem(this.newWordItem, JSON.stringify(obj));
+				this.$emit('addWord', this.newWordItem)
 				// 서버로 보내서 검색한 결과를 List에 출력
 				this.clearInput();
+			}
+			else {
+				this.showModal = !this.showModal
 			}
 		},
 		clearInput: function() {
 			this.newWordItem = "";
 		}
+	},
+	components: {
+		'Modal': Modal
 	}
 }
 </script>
@@ -61,6 +80,11 @@ input:focus {
 .addBtn {
 	color: white;
 	vertical-align: middle;
+}
+
+.closeModalBtn {
+	color: #6138D4;
+	padding-left: 1%;
 }
 
 </style>

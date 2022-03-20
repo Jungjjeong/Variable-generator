@@ -1,15 +1,13 @@
 <template>
-  <div>
-    footer
+  <div class="clearAllContainer">
+    Footer
   </div>
 </template>
 
 <script>
-export default {
 
-}
 </script>
 
-<style>
+<style scoped>
 
 </style>
