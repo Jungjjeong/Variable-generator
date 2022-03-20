@@ -17,9 +17,7 @@ export default {
 	methods: {
 		addWord: function() {
 			if (this.newWordItem !== "") {
-				var obj = {copied: false, item:this.newWordItem};
-				// 저장하는 로직
-				localStorage.setItem(this.newWordItem, JSON.stringify(obj));
+				this.$emit('addWord', this.newWordItem)
 				// 서버로 보내서 검색한 결과를 List에 출력
 				this.clearInput();
 			}

@@ -1,7 +1,7 @@
 <template>
   <div>
 	  <ul>
-      <li v-for="(word, idx) in words" v-bind:key="word.item" class="shadow">
+      <li v-for="(word, idx) in propsdata" v-bind:key="word.item" class="shadow">
         <span class="copyBtn" v-bind:class="{copyBtnCompleted: word.copied}" v-on:click="copyComplete(word, idx)">
           <i class="fa-solid fa-copy"></i>
         </span>
@@ -16,29 +16,13 @@
 
 <script>
 export default {
-  data : function() {
-    return {
-      words : []
-    }
-  },
-  // 인스턴스 생성되자마자 실행되는 로직 created
-  created: function() {
-    if (localStorage.length > 0) {
-      for (var i=0; i<localStorage.length; i+= 1) {
-        this.words.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-        // this.words.push(localStorage.key(i));
-      }
-    }
-  },
+  props: ['propsdata'],
   methods: {
     removeWord: function(word, idx) {
-      localStorage.removeItem(word);
-      this.words.splice(idx, 1);
+      this.$emit('removeWord', word, idx)
     },
     copyComplete: function(word, idx) {
-      word.copied = !word.copied;
-      localStorage.removeItem(word.item);
-      localStorage.setItem(word.item, JSON.stringify(word));
+      this.$emit('copyComplete', word, idx)
     }
   }
 }
